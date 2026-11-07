@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniil BRANDesign</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#1A1A1A', 
+                            accent: '#BDCBCB',
+                            cardbg: '#2A2A2A',
+                            border: 'rgba(217, 217, 217, 0.15)'
+                        }
+                    },
+                    letterSpacing: {
+                        'minus-2': '-0.02em',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+            font-family: 'Manrope', sans-serif;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1A1A1A; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="py-8 px-6 md:px-12 flex justify-between items-center z-50 relative">
+        <div class="text-xl tracking-wide">Daniil BRANDesign</div>
+        <nav class="hidden md:flex gap-10 text-sm font-semibold text-white">
+            <a href="#about" class="hover:text-brand-accent transition-colors">Обо мне</a>
+            <a href="#services" class="hover:text-brand-accent transition-colors">Услуги</a>
+            <a href="#portfolio" class="hover:text-brand-accent transition-colors">Портфолио</a>
+            <a href="#partners" class="hover:text-brand-accent transition-colors">Партнёры</a>
+        </nav>
+        <button class="bg-[#BDCBCB] text-[#1A1A1A] px-6 py-2.5 rounded-full text-sm font-bold hover:bg-white transition-colors">
+            ОБСУДИТЬ ПРОЕКТ
+        </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="px-6 md:px-12 pt-10 pb-20 relative flex flex-col md:flex-row justify-between items-start md:items-center">
+        <div class="relative z-10 w-full md:w-1/2">
+            <div class="mb-10">
+                <div class="text-[32px] md:text-[64px] font-semibold uppercase leading-[1.1]">
+                    СИСТЕМНЫЙ
+                </div>
+                <div class="text-[48px] md:text-[100px] font-semibold uppercase leading-[1]">
+                    БРЕНДИНГ
+                </div>
+                <div class="text-[24px] md:text-[48px] font-normal uppercase tracking-minus-2 leading-[1.2] mt-2">
+                    ДЛЯ ВАШЕГО БИЗНЕСА
+                </div>
+            </div>
+            
+            <p class="text-white text-[15px] leading-snug max-w-sm font-semibold mb-12">
+                Разрабатываю визуальный фундамент для компаний.<br>
+                От смыслового позиционирования и логотипа<br>
+                до физических носителей и цифровой среды
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-4 max-w-2xl">
+                <button class="w-full bg-[#BDCBCB] text-[#1A1A1A] py-4 text-sm font-bold uppercase hover:bg-white transition-colors">
+                    ОБО МНЕ
+                </button>
+                <button class="w-full bg-white text-[#1A1A1A] py-4 text-sm font-bold uppercase hover:bg-[#BDCBCB] transition-colors">
+                    ПОДХОД К РАБОТЕ
+                </button>
+            </div>
+        </div>
+
+        <div class="relative w-full md:w-1/2 mt-12 md:mt-0 flex justify-end">
+            <div class="absolute right-10 top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-white/10 blur-[100px] rounded-full z-0"></div>
+            <img src="Группа 2-compressed 1.png" alt="Даниил" class="relative z-10 max-w-full lg:max-w-[85%] object-contain">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="px-6 md:px-12 py-12 flex flex-col md:flex-row gap-16 justify-between items-start">
+        <div class="w-full md:w-1/2 flex flex-col justify-between h-full min-h-[400px]">
+            <div class="text-[20px] md:text-[24px] font-normal leading-[1.4] max-w-lg mb-16">
+                Приветствую! Я Даниил, бренд-дизайнер.<br>
+                Помогаю бизнесу и экспертам выстраивать<br>
+                сильный визуальный образ через логотипы,<br>
+                айдентику и брендинг.<br><br>
+                Моя работа сделать не просто красиво,<br>
+                а создать визуальное решение, которое<br>
+                поможет бизнесу выглядеть целостно<br>
+                убедительно и на своём уровне.
+            </div>
+            
+            <div class="flex gap-16 text-sm font-semibold mt-auto">
+                <a href="#" class="hover:text-[#BDCBCB] transition-colors">Вконтакте</a>
+                <a href="#" class="hover:text-[#BDCBCB] transition-colors">Behance</a>
+                <a href="#" class="hover:text-[#BDCBCB] transition-colors">Telegram</a>
+            </div>
+        </div>
+        <div class="w-full md:w-1/2 flex justify-end">
+            <div class="w-full max-w-[450px]">
+                <img src="Rectangle 7.jpg" alt="Даниил за работой" class="w-full h-auto object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="px-6 md:px-12 py-20 mt-12">
+        <h2 class="text-[24px] font-normal mb-8 flex items-center gap-3">
+            <img src="звёздочка.svg" alt="*" class="w-5 h-5 opacity-70"> услуги
+        </h2>
+        <div class="mb-12">
+            <h3 class="text-[40px] md:text-[56px] font-normal leading-tight mb-2">Система решений</h3>
+            <p class="text-[20px] font-normal">от уникального названия до комплексной системы бренда</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-stretch">
+            
+            <!-- Service 1 -->
+            <div class="flex flex-col bg-brand-cardbg h-full min-h-[420px] relative">
+                <div class="px-4 py-2 flex justify-between items-center">
+                    <span class="bg-[#BDCBCB] text-[#1A1A1A] px-3 py-1 text-lg font-semibold">Нейминг</span>
+                    <span class="text-[#BDCBCB] text-2xl absolute right-4 top-2">*</span>
+                </div>
+                <div class="p-6 text-[14px] font-normal leading-[1.5] text-white">
+                    Разработка охраноспособного<br>
+                    названия, смысловой<br>
+                    платформы и дескрипторов,<br>
+                    отстраивающих бизнес<br>
+                    от конкурентов.
+                </div>
+                <div class="mt-auto bg-white text-[#1A1A1A] text-center py-3 text-sm font-semibold cursor-pointer hover:bg-[#BDCBCB] transition-colors">
+                    Подробнее &rarr;
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="flex flex-col bg-brand-cardbg h-full min-h-[420px] relative">
+                <div class="px-4 py-2 flex justify-between items-center">
+                    <span class="bg-[#BDCBCB] text-[#1A1A1A] px-3 py-1 text-lg font-semibold">Логотип</span>
+                    <span class="text-[#BDCBCB] text-2xl absolute right-4 top-2">*</span>
+                </div>
+                <div class="p-6 text-[14px] font-normal leading-[1.5] text-white">
+                    Создание главного символа<br>
+                    компании. Устойчивый логотип<br>
+                    и полный комплект его<br>
+                    адаптаций, гарантируя чистоту<br>
+                    геометрии на любом носителе<br>
+                    — от экрана смартфона до<br>
+                    физического мерча.
+                </div>
+                <div class="mt-auto bg-white text-[#1A1A1A] text-center py-3 text-sm font-semibold cursor-pointer hover:bg-[#BDCBCB] transition-colors">
+                    Подробнее &rarr;
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="flex flex-col bg-brand-cardbg h-full min-h-[420px] relative">
+                <div class="px-4 py-2 flex justify-between items-center">
+                    <span class="bg-[#BDCBCB] text-[#1A1A1A] px-3 py-1 text-lg font-semibold">Айдентика</span>
+                    <span class="text-[#BDCBCB] text-2xl absolute right-4 top-2">*</span>
+                </div>
+                <div class="p-6 text-[14px] font-normal leading-[1.5] text-white">
+                    Полноценная визуальная<br>
+                    система бренда: шрифтовые<br>
+                    пары, модульные сетки,<br>
+                    цветовые формулы и регламент<br>
+                    использования (гайдлайн).
+                </div>
+                <div class="mt-auto bg-white text-[#1A1A1A] text-center py-3 text-sm font-semibold cursor-pointer hover:bg-[#BDCBCB] transition-colors">
+                    Подробнее &rarr;
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="flex flex-col bg-brand-cardbg h-full min-h-[420px] relative">
+                <div class="px-4 py-2 flex justify-between items-center">
+                    <span class="bg-[#BDCBCB] text-[#1A1A1A] px-3 py-1 text-lg font-semibold">Брендинг</span>
+                    <span class="text-[#BDCBCB] text-2xl absolute right-4 top-2">*</span>
+                </div>
+                <div class="p-6 text-[14px] font-normal leading-[1.5] text-white">
+                    Проектирование фундамента<br>
+                    бренда: от смыслов<br>
+                    и позиционирования<br>
+                    до визуального воплощения.
+                </div>
+                <div class="mt-auto bg-white text-[#1A1A1A] text-center py-3 text-sm font-semibold cursor-pointer hover:bg-[#BDCBCB] transition-colors">
+                    Подробнее &rarr;
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="mt-10 flex justify-end">
+            <button class="border border-white text-white px-8 py-2 rounded-full text-sm font-normal hover:bg-white hover:text-black transition-colors">
+                Смотреть все услуги
+            </button>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="px-6 md:px-12 py-20 bg-[#1A1A1A]">
+        <h2 class="text-[24px] font-normal mb-8 flex items-center gap-3">
+            <img src="звёздочка.svg" alt="*" class="w-5 h-5 opacity-70"> портфолио
+        </h2>
+        <h3 class="text-[40px] md:text-[48px] font-normal mb-12">Избранные проекты</h3>
+
+        <!-- Grid 3 columns, 2 rows -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Row 1 -->
+            <div class="relative group aspect-[4/5] border border-white/20">
+                <img src="Rectangle 19.png" alt="Кейс" class="w-full h-full object-cover">
+                <div class="absolute top-4 left-4 text-white text-[11px] font-normal leading-[1.3]">Логотип для бренда<br>женской одежды</div>
+                <div class="absolute top-4 right-4 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-full opacity-90">кейс &rarr;</div>
+            </div>
+            
+            <div class="relative group aspect-[4/5] border border-white/20">
+                <img src="Rectangle 20.png" alt="Кейс" class="w-full h-full object-cover">
+                <div class="absolute top-4 right-4 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-full opacity-90">кейс &rarr;</div>
+            </div>
+            
+            <div class="relative group aspect-[4/5] border border-white/20">
+                <img src="Rectangle 21.png" alt="Кейс" class="w-full h-full object-cover">
+                <div class="absolute top-4 right-4 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-full opacity-90">кейс &rarr;</div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="relative group aspect-[4/5] border border-white/20">
+                <img src="Rectangle 25.png" alt="Кейс" class="w-full h-full object-cover">
+                <div class="absolute top-4 right-4 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-full opacity-90">кейс &rarr;</div>
+            </div>
+            
+            <div class="relative group aspect-[4/5] border border-white/20">
+                <img src="Rectangle 26.png" alt="Кейс" class="w-full h-full object-cover">
+                <div class="absolute top-4 right-4 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-full opacity-90">кейс &rarr;</div>
+            </div>
+            
+            <div class="relative group aspect-[4/5] border border-white/20">
+                <img src="Rectangle 27.png" alt="Кейс" class="w-full h-full object-cover">
+                <div class="absolute top-4 right-4 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-full opacity-90">кейс &rarr;</div>
+            </div>
+
+        </div>
+
+        <div class="mt-10 flex justify-end">
+            <button class="border border-white text-white px-8 py-2 rounded-full text-sm font-normal hover:bg-white hover:text-black transition-colors">
+                Смотреть все работы
+            </button>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="px-6 md:px-12 py-20">
+        <h2 class="text-[24px] font-normal mb-8 flex items-center gap-3">
+            <img src="звёздочка.svg" alt="*" class="w-5 h-5 opacity-70"> этапы работы
+        </h2>
+        <h3 class="text-[40px] md:text-[48px] font-normal mb-16">Процесс работы</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-20">
+            <!-- Step 1 -->
+            <div>
+                <div class="text-[20px] font-normal mb-6">Шаг 1 // Первичное интервью</div>
+                <div class="text-[14px] leading-[1.5] font-normal">
+                    Раскрываем ДНК продукта, бизнес-цели,<br>
+                    ценовой сегмент и точки контакта с аудиторией.<br>
+                    Формируем смысловой фундамент, отсекаем<br>
+                    шаблонные ходы конкурентов.
+                </div>
+            </div>
+            
+            <!-- Step 2 -->
+            <div>
+                <div class="text-[20px] font-normal mb-6">Шаг 2 // Проектирование концепций</div>
+                <div class="text-[14px] leading-[1.5] font-normal">
+                    Направляем визуальный вектор и проектируем первые<br>
+                    концепции. Презентация первых рабочих вариантов<br>
+                    с обоснованием логики решений.
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div>
+                <div class="text-[20px] font-normal mb-6">Шаг 3 // Стресс-тест система</div>
+                <div class="text-[14px] leading-[1.5] font-normal">
+                    Выбранный концепт тестируется<br>
+                    на технологичность и масштабируемость.<br>
+                    От микрофавикона (16x16 пикселей)<br>
+                    до физических носителей (тиснение,<br>
+                    шелкография на мерче, гравировка, вывески).
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div>
+                <div class="text-[20px] font-normal mb-6">Шаг 4 // Систематизация и файлы</div>
+                <div class="text-[14px] leading-[1.5] font-normal">
+                    Финализируем файлы во всех форматах (вектор, растр,<br>
+                    микро-версии, монохром), готовим технический<br>
+                    регламент (гайдлайн) для легкого внедрения<br>
+                    маркетологами и подрядчиками.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="px-6 md:px-12 py-20 pb-32">
+        <div class="max-w-[500px]">
+            <h3 class="text-[32px] md:text-[40px] font-normal mb-10">Обсудить проект</h3>
+            <form class="space-y-4" onsubmit="event.preventDefault(); this.querySelector('button').innerText = 'Отправлено!';">
+                <input type="text" placeholder="Ваше имя" class="w-full bg-transparent border-b border-white/30 py-3 focus:outline-none focus:border-white transition-colors text-white placeholder-white text-[15px]">
+                <input type="text" placeholder="Контакты" class="w-full bg-transparent border-b border-white/30 py-3 focus:outline-none focus:border-white transition-colors text-white placeholder-white text-[15px]">
+                <input type="email" placeholder="Почта" class="w-full bg-transparent border-b border-white/30 py-3 focus:outline-none focus:border-white transition-colors text-white placeholder-white text-[15px]">
+                <input type="text" placeholder="Расскажите о вашем проекте" class="w-full bg-transparent border-b border-white/30 py-3 focus:outline-none focus:border-white transition-colors text-white placeholder-white text-[15px]">
+                
+                <button type="submit" class="bg-[#D9D9D9] text-[#1A1A1A] font-bold py-3 px-10 rounded-full hover:bg-white transition-colors mt-8 inline-block text-sm">
+                    Отправить
+                </button>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
