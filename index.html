@@ -3,17 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniil BRANDesign — Системный брендинг для вашего бизнеса</title>
-
-    <!-- Подключение Tailwind CSS -->
+    <title>Daniil BRANDesign</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Подключение шрифта Manrope (строго 400, 600, 700, без курсива) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Конфигурация дизайн-токенов Tailwind -->
     <script>
         tailwind.config = {
             theme: {
@@ -24,8 +18,8 @@
                     colors: {
                         brand: {
                             bg: '#1A1A1A',
-                            cardbg: '#2A2A2A',
                             accent: '#BDCBCB',
+                            cardbg: '#2A2A2A',
                             border: 'rgba(217, 217, 217, 0.15)'
                         }
                     },
@@ -36,149 +30,115 @@
             }
         }
     </script>
-
-    <!-- Базовые стили, плавный скролл и кастомный тёмный скроллбар -->
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
         body {
             background-color: #1A1A1A;
             color: #FFFFFF;
             font-family: 'Manrope', sans-serif;
-            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
-        /* Кастомный тёмный скроллбар */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1A1A1A;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #333333;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555555;
-        }
-        /* Плавное появление вкладок SPA */
-        .fade-in {
-            animation: fadeIn 0.35s ease-in-out;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1A1A1A; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        .fade-in { animation: fadeIn 0.35s ease-in-out; }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        /* Анимация полосок мобильного меню-бургера в крестик */
-        .burger-line {
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        .burger-open .line-1 {
-            transform: translateY(3.75px) rotate(45deg);
-        }
-        .burger-open .line-2 {
-            transform: translateY(-3.75px) rotate(-45deg);
-        }
     </style>
 </head>
-<body class="antialiased selection:bg-[#BDCBCB] selection:text-[#1A1A1A]">
+<body class="antialiased">
 
-    <!-- ===================================================================== -->
-    <!-- ЕДИНАЯ ЛИПКАЯ ШАПКА (для главной страницы и раздела «Обо мне»)        -->
-    <!-- ===================================================================== -->
-    <header id="main-header" class="sticky top-0 z-50 bg-[#1A1A1A]/95 backdrop-blur-md border-b border-white/10 py-5 md:py-8 px-6 md:px-12 flex justify-between items-center">
-        <!-- Логотип -->
-        <a href="#" onclick="closeMobileMenu(); showPage('main-page'); return false;" class="text-lg md:text-xl tracking-wide text-white hover:text-[#BDCBCB] transition-colors whitespace-nowrap">
+    <!-- Единая липкая шапка сайта -->
+    <header id="main-header" class="sticky top-0 z-[70] bg-[#1A1A1A]/95 backdrop-blur-md py-5 md:py-7 px-6 md:px-12 flex justify-between items-center border-b border-white/10 transition-colors duration-300">
+        <a href="#" onclick="showPage('main-page'); closeMobileMenu(); return false;" class="text-lg md:text-xl tracking-wide hover:text-[#BDCBCB] transition-colors">
             Daniil BRANDesign
         </a>
 
-        <!-- Десктопное меню -->
+        <!-- Десктопная навигация -->
         <nav class="hidden md:flex items-center gap-10 text-sm font-semibold text-white">
-            <a id="nav-about" href="#" onclick="showPage('about-page'); return false;" class="hover:text-[#BDCBCB] transition-colors">
+            <a href="#" id="nav-about" onclick="showPage('about-page'); return false;" class="hover:text-[#BDCBCB] transition-colors py-1 border-b-2 border-transparent">
                 Обо мне
             </a>
-            <a href="#services" onclick="navigateToSection('services'); return false;" class="hover:text-[#BDCBCB] transition-colors">
+            <a href="#services" onclick="navigateToSection('services'); return false;" class="hover:text-[#BDCBCB] transition-colors py-1">
                 Услуги
             </a>
-            <a href="#portfolio" onclick="navigateToSection('portfolio'); return false;" class="hover:text-[#BDCBCB] transition-colors">
+            <a href="#portfolio" onclick="navigateToSection('portfolio'); return false;" class="hover:text-[#BDCBCB] transition-colors py-1">
                 Портфолио
             </a>
-            <a href="#process" onclick="navigateToSection('process'); return false;" class="hover:text-[#BDCBCB] transition-colors">
+            <a href="#process" onclick="navigateToSection('process'); return false;" class="hover:text-[#BDCBCB] transition-colors py-1">
                 Партнёры
             </a>
         </nav>
 
         <!-- Десктопная кнопка CTA -->
-        <button onclick="navigateToSection('form');" class="hidden md:inline-flex items-center justify-center bg-[#BDCBCB] text-[#1A1A1A] px-6 py-2.5 rounded-full text-sm font-bold hover:bg-white transition-colors">
+        <button onclick="navigateToSection('form');" class="hidden md:inline-block bg-[#BDCBCB] text-[#1A1A1A] px-6 py-2.5 rounded-full text-sm font-bold hover:bg-white transition-colors">
             ОБСУДИТЬ ПРОЕКТ
         </button>
 
         <!-- Мобильная кнопка меню-бургера -->
-        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Открыть меню" aria-expanded="false" class="md:hidden w-10 h-10 rounded-full border border-white/30 flex flex-col justify-center items-center gap-[6px] hover:border-[#BDCBCB] active:scale-95 transition-all">
-            <span class="burger-line line-1 block w-4 h-[1.5px] bg-white"></span>
-            <span class="burger-line line-2 block w-4 h-[1.5px] bg-white"></span>
+        <button id="burger-btn" onclick="toggleMobileMenu()" aria-label="Открыть меню" aria-expanded="false" class="md:hidden w-10 h-10 rounded-full border border-white/25 bg-[#242424] flex flex-col justify-center items-center gap-1.5 text-white hover:border-[#BDCBCB] transition-colors">
+            <span id="burger-line-1" class="w-4 h-[1.5px] bg-white transition-all duration-300"></span>
+            <span id="burger-line-2" class="w-4 h-[1.5px] bg-white transition-all duration-300"></span>
+            <span id="burger-line-3" class="w-4 h-[1.5px] bg-white transition-all duration-300"></span>
         </button>
     </header>
 
-    <!-- ===================================================================== -->
-    <!-- ПОЛНОЭКРАННАЯ МОБИЛЬНАЯ ШТОРКА НАВИГАЦИИ                             -->
-    <!-- ===================================================================== -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-[#1A1A1A]/98 backdrop-blur-lg hidden md:hidden flex-col justify-between px-6 pt-28 pb-10 overflow-y-auto fade-in">
-        <nav class="flex flex-col space-y-5">
-            <a id="mobile-nav-main" href="#" onclick="closeMobileMenu(); showPage('main-page'); return false;" class="text-3xl font-normal tracking-tight text-[#BDCBCB] hover:text-[#BDCBCB] transition-colors flex items-center justify-between border-b border-white/10 pb-4">
+    <!-- Полноэкранная мобильная шторка навигации (плотный непрозрачный тёмный фон #0F0F0F) -->
+    <div id="mobile-menu" style="background-color: #0F0F0F;" class="fixed inset-0 z-[60] bg-[#0F0F0F] pt-28 pb-10 px-6 flex flex-col justify-between overflow-y-auto hidden md:hidden fade-in">
+        <div class="flex flex-col space-y-6 mt-2">
+            <a href="#" id="mob-nav-main" onclick="showPage('main-page'); closeMobileMenu(); return false;" class="text-2xl font-normal text-white hover:text-[#BDCBCB] transition-colors flex items-center justify-between border-b border-white/10 pb-4">
                 <span>Главная</span>
+                <span id="mob-main-badge" class="text-xs font-semibold uppercase tracking-wider bg-[#BDCBCB] text-[#1A1A1A] px-3 py-1 rounded-full">вы здесь</span>
             </a>
-            <a id="mobile-nav-about" href="#" onclick="closeMobileMenu(); showPage('about-page'); return false;" class="text-3xl font-normal tracking-tight text-white hover:text-[#BDCBCB] transition-colors flex items-center justify-between border-b border-white/10 pb-4">
+            <a href="#" id="mob-nav-about" onclick="showPage('about-page'); closeMobileMenu(); return false;" class="text-2xl font-normal text-white hover:text-[#BDCBCB] transition-colors flex items-center justify-between border-b border-white/10 pb-4">
                 <span>Обо мне</span>
-                <span id="mobile-about-badge" class="hidden text-[11px] uppercase tracking-wider bg-[#BDCBCB] text-[#1A1A1A] px-3 py-1 rounded-full font-bold">
-                    вы здесь
-                </span>
+                <span id="mob-about-badge" class="hidden text-xs font-semibold uppercase tracking-wider bg-[#BDCBCB] text-[#1A1A1A] px-3 py-1 rounded-full">вы здесь</span>
             </a>
-            <a href="#services" onclick="closeMobileMenu(); navigateToSection('services'); return false;" class="text-3xl font-normal tracking-tight text-white hover:text-[#BDCBCB] transition-colors border-b border-white/10 pb-4">
+            <a href="#services" onclick="navigateToSection('services'); closeMobileMenu(); return false;" class="text-2xl font-normal text-white hover:text-[#BDCBCB] transition-colors border-b border-white/10 pb-4">
                 Услуги
             </a>
-            <a href="#portfolio" onclick="closeMobileMenu(); navigateToSection('portfolio'); return false;" class="text-3xl font-normal tracking-tight text-white hover:text-[#BDCBCB] transition-colors border-b border-white/10 pb-4">
+            <a href="#portfolio" onclick="navigateToSection('portfolio'); closeMobileMenu(); return false;" class="text-2xl font-normal text-white hover:text-[#BDCBCB] transition-colors border-b border-white/10 pb-4">
                 Портфолио
             </a>
-            <a href="#process" onclick="closeMobileMenu(); navigateToSection('process'); return false;" class="text-3xl font-normal tracking-tight text-white hover:text-[#BDCBCB] transition-colors border-b border-white/10 pb-4">
+            <a href="#process" onclick="navigateToSection('process'); closeMobileMenu(); return false;" class="text-2xl font-normal text-white hover:text-[#BDCBCB] transition-colors border-b border-white/10 pb-4">
                 Партнёры
             </a>
-        </nav>
+        </div>
 
-        <div class="space-y-6 mt-10">
-            <button onclick="closeMobileMenu(); navigateToSection('form');" class="w-full bg-[#BDCBCB] text-[#1A1A1A] py-4 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-white transition-colors">
+        <div class="mt-10 space-y-6">
+            <button onclick="navigateToSection('form'); closeMobileMenu();" class="w-full bg-[#BDCBCB] text-[#1A1A1A] py-4 rounded-full text-sm font-bold uppercase tracking-wide hover:bg-white transition-colors">
                 ОБСУДИТЬ ПРОЕКТ
             </button>
-            <div class="flex justify-between items-center text-sm font-normal text-white/75 pt-2">
-                <a href="#" class="hover:text-[#BDCBCB] transition-colors">вконтакте</a>
-                <a href="#" class="hover:text-[#BDCBCB] transition-colors">Behance</a>
-                <a href="#" class="hover:text-[#BDCBCB] transition-colors">Telegram</a>
+            <div class="flex justify-between text-sm text-white/70 pt-2">
+                <a href="#" class="hover:text-white transition-colors">ВКонтакте</a>
+                <a href="#" class="hover:text-white transition-colors">Behance</a>
+                <a href="#" class="hover:text-white transition-colors">Telegram</a>
             </div>
         </div>
     </div>
 
-    <!-- ===================================================================== -->
-    <!-- ГЛАВНАЯ СТРАНИЦА (#main-page)                                         -->
-    <!-- ===================================================================== -->
-    <main id="main-page" class="fade-in">
-
-        <!-- Первый экран (Hero) -->
-        <section class="px-6 md:px-12 pt-10 md:pt-14 pb-20 relative flex flex-col md:flex-row justify-between items-start md:items-center overflow-hidden">
+    <!-- ОСНОВНАЯ СТРАНИЦА -->
+    <div id="main-page" class="fade-in">
+        
+        <!-- Hero Section -->
+        <section class="px-6 md:px-12 pt-10 pb-20 relative flex flex-col md:flex-row justify-between items-start md:items-center">
             <div class="relative z-10 w-full md:w-1/2">
-                <!-- Заголовок из Figma -->
-                <h1 class="mb-10">
-                    <span class="block text-[32px] md:text-[64px] font-semibold uppercase leading-[1.1]">
+                
+                <!-- ТОЧНАЯ ТИПОГРАФИКА ИЗ FIGMA -->
+                <div class="mb-10">
+                    <div class="text-[32px] md:text-[64px] font-semibold uppercase leading-[1.1]">
                         СИСТЕМНЫЙ
-                    </span>
-                    <span class="block text-[48px] md:text-[100px] font-semibold uppercase leading-[1]">
+                    </div>
+                    <div class="text-[48px] md:text-[100px] font-semibold uppercase leading-[1]">
                         БРЕНДИНГ
-                    </span>
-                    <span class="block text-[24px] md:text-[48px] font-normal uppercase leading-[1.2] mt-2 tracking-[-0.02em]">
+                    </div>
+                    <div class="text-[24px] md:text-[48px] font-normal uppercase leading-[1.2] mt-2 tracking-minus-2">
                         ДЛЯ ВАШЕГО БИЗНЕСА
-                    </span>
-                </h1>
-
+                    </div>
+                </div>
+                
                 <!-- Подзаголовок -->
                 <p class="text-white text-[15px] leading-snug max-w-sm font-normal mb-12">
                     Разрабатываю визуальный фундамент для компаний.<br>
@@ -186,30 +146,25 @@
                     до физических носителей и цифровой среды
                 </p>
 
-                <!-- Две кнопки -->
-                <div class="flex flex-col sm:flex-row gap-4 max-w-2xl">
-                    <button onclick="showPage('about-page');" class="w-full bg-[#BDCBCB] text-[#1A1A1A] py-4 px-6 rounded-xl text-sm font-bold uppercase hover:bg-white transition-colors">
+                <div class="flex flex-col md:flex-row gap-4 max-w-2xl">
+                    <button onclick="showPage('about-page');" class="w-full bg-[#BDCBCB] text-[#1A1A1A] py-4 text-sm font-bold uppercase hover:bg-white transition-colors">
                         ОБО МНЕ
                     </button>
-                    <button onclick="navigateToSection('process');" class="w-full bg-white text-[#1A1A1A] py-4 px-6 rounded-xl text-sm font-bold uppercase hover:bg-[#BDCBCB] transition-colors">
+                    <button onclick="document.getElementById('process').scrollIntoView({ behavior: 'smooth' });" class="w-full bg-white text-[#1A1A1A] py-4 text-sm font-bold uppercase hover:bg-[#BDCBCB] transition-colors">
                         ПОДХОД К РАБОТЕ
                     </button>
                 </div>
             </div>
 
-            <!-- Фото справа с мягким белым свечением -->
-            <div class="relative w-full md:w-1/2 mt-12 md:mt-0 flex justify-center md:justify-end">
-                <div class="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 w-[280px] h-[280px] md:w-[400px] md:h-[400px] bg-white/10 blur-[100px] rounded-full z-0 pointer-events-none"></div>
-                <img src="Группа 2-compressed 1.png"
-                     alt="Даниил — бренд-дизайнер"
-                     onerror="this.onerror=null; this.src='https://placehold.co/600x700/2A2A2A/BDCBCB?text=Daniil+BRANDesign';"
-                     class="relative z-10 max-w-full lg:max-w-[85%] h-auto object-contain rounded-xl">
+            <div class="relative w-full md:w-1/2 mt-12 md:mt-0 flex justify-end">
+                <div class="absolute right-10 top-1/2 -translate-y-1/2 w-[300px] md:w-[400px] h-[300px] md:h-[400px] bg-white/10 blur-[100px] rounded-full z-0"></div>
+                <img src="Группа 2-compressed 1.png" alt="Даниил" class="relative z-10 max-w-full lg:max-w-[85%] object-contain">
             </div>
         </section>
 
-        <!-- Краткий блок «Обо мне» (#about) -->
-        <section id="about" class="px-6 md:px-12 py-12 md:py-16 flex flex-col md:flex-row gap-12 md:gap-16 justify-between items-start">
-            <div class="w-full md:w-1/2 flex flex-col justify-between min-h-[340px] md:min-h-[420px]">
+        <!-- About (Кратко на главной) -->
+        <section id="about" class="px-6 md:px-12 py-12 flex flex-col md:flex-row gap-16 justify-between items-start">
+            <div class="w-full md:w-1/2 flex flex-col justify-between h-full min-h-[360px] md:min-h-[400px]">
                 <div class="text-[20px] md:text-[24px] font-normal leading-[1.4] max-w-lg mb-12 md:mb-16">
                     Приветствую! Я Даниил, бренд-дизайнер.<br>
                     Помогаю бизнесу и экспертам выстраивать<br>
@@ -220,62 +175,54 @@
                     поможет бизнесу выглядеть целостно<br>
                     убедительно и на своём уровне.
                 </div>
-
-                <div class="flex flex-wrap gap-10 md:gap-16 text-sm font-semibold mt-auto">
+                
+                <div class="flex gap-10 md:gap-16 text-sm font-semibold mt-auto">
                     <a href="#" class="hover:text-[#BDCBCB] transition-colors">вконтакте</a>
                     <a href="#" class="hover:text-[#BDCBCB] transition-colors">Behance</a>
                     <a href="#" class="hover:text-[#BDCBCB] transition-colors">Telegram</a>
                 </div>
             </div>
-
-            <div class="w-full md:w-1/2 flex justify-start md:justify-end">
+            <div class="w-full md:w-1/2 flex justify-end">
                 <div class="w-full max-w-[450px]">
-                    <img src="Rectangle 7.jpg"
-                         alt="Даниил за работой"
-                         onerror="this.onerror=null; this.src='https://placehold.co/450x560/2A2A2A/BDCBCB?text=Daniil';"
-                         class="w-full h-auto object-cover rounded-xl">
+                    <img src="Rectangle 7.jpg" alt="Даниил за работой" class="w-full h-auto object-cover">
                 </div>
             </div>
         </section>
 
-        <!-- Блок «Услуги» (#services) -->
-        <section id="services" class="px-6 md:px-12 py-20 mt-8">
+        <!-- Services Section -->
+        <section id="services" class="px-6 md:px-12 py-20 mt-8 md:mt-12">
             <h2 class="text-[24px] font-normal mb-8 flex items-center gap-3">
-                <img src="звёздочка.svg" alt="*" onerror="this.style.display='none';" class="w-5 h-5 opacity-75">
-                <span>услуги</span>
+                <img src="звёздочка.svg" alt="*" class="w-5 h-5 opacity-70"> услуги
             </h2>
             <div class="mb-12">
                 <h3 class="text-[36px] md:text-[56px] font-normal leading-tight mb-2">Система решений</h3>
-                <p class="text-[18px] md:text-[20px] font-normal text-white/90">от уникального названия до комплексной системы бренда</p>
+                <p class="text-[18px] md:text-[20px] font-normal">от уникального названия до комплексной системы бренда</p>
             </div>
 
-            <!-- 4 карточки услуг -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
-                <!-- Карточка 1: Нейминг -->
-                <div class="flex flex-col bg-[#2A2A2A] rounded-xl overflow-hidden min-h-[420px] relative">
-                    <div class="px-5 pt-5 pb-2 flex justify-between items-center">
-                        <span class="bg-[#BDCBCB] text-[#1A1A1A] px-3 py-1 rounded-md text-lg font-semibold">Нейминг</span>
-                        <span class="text-[#BDCBCB] text-2xl leading-none select-none">*</span>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-stretch">
+                <!-- Service 1 -->
+                <div class="flex flex-col bg-brand-cardbg h-full min-h-[380px] md:min-h-[420px] relative">
+                    <div class="px-4 py-2 flex justify-between items-center">
+                        <span class="bg-[#BDCBCB] text-[#1A1A1A] px-3 py-1 text-lg font-semibold">Нейминг</span>
+                        <span class="text-[#BDCBCB] text-2xl absolute right-4 top-2">*</span>
                     </div>
-                    <div class="p-6 text-[14px] font-normal leading-[1.55] text-white">
+                    <div class="p-6 text-[14px] font-normal leading-[1.5] text-white">
                         Разработка охраноспособного<br>
                         названия, смысловой<br>
                         платформы и дескрипторов,<br>
                         отстраивающих бизнес<br>
                         от конкурентов.
                     </div>
-                    <button onclick="navigateToSection('form');" class="mt-auto w-full bg-white text-[#1A1A1A] text-center py-3.5 text-sm font-semibold hover:bg-[#BDCBCB] transition-colors">
-                        Подробнее &rarr;
-                    </button>
+                    <div onclick="navigateToSection('form');" class="mt-auto bg-white text-[#1A1A1A] text-center py-3 text-sm font-semibold cursor-pointer hover:bg-[#BDCBCB] transition-colors">Подробнее &rarr;</div>
                 </div>
 
-                <!-- Карточка 2: Логотип -->
-                <div class="flex flex-col bg-[#2A2A2A] rounded-xl overflow-hidden min-h-[420px] relative">
-                    <div class="px-5 pt-5 pb-2 flex justify-between items-center">
-                        <span class="bg-[#BDCBCB] text-[#1A1A1A] px-3 py-1 rounded-md text-lg font-semibold">Логотип</span>
-                        <span class="text-[#BDCBCB] text-2xl leading-none select-none">*</span>
+                <!-- Service 2 -->
+                <div class="flex flex-col bg-brand-cardbg h-full min-h-[380px] md:min-h-[420px] relative">
+                    <div class="px-4 py-2 flex justify-between items-center">
+                        <span class="bg-[#BDCBCB] text-[#1A1A1A] px-3 py-1 text-lg font-semibold">Логотип</span>
+                        <span class="text-[#BDCBCB] text-2xl absolute right-4 top-2">*</span>
                     </div>
-                    <div class="p-6 text-[14px] font-normal leading-[1.55] text-white">
+                    <div class="p-6 text-[14px] font-normal leading-[1.5] text-white">
                         Создание главного символа<br>
                         компании. Устойчивый логотип<br>
                         и полный комплект его<br>
@@ -284,175 +231,124 @@
                         — от экрана смартфона до<br>
                         физического мерча.
                     </div>
-                    <button onclick="navigateToSection('form');" class="mt-auto w-full bg-white text-[#1A1A1A] text-center py-3.5 text-sm font-semibold hover:bg-[#BDCBCB] transition-colors">
-                        Подробнее &rarr;
-                    </button>
+                    <div onclick="navigateToSection('form');" class="mt-auto bg-white text-[#1A1A1A] text-center py-3 text-sm font-semibold cursor-pointer hover:bg-[#BDCBCB] transition-colors">Подробнее &rarr;</div>
                 </div>
 
-                <!-- Карточка 3: Айдентика -->
-                <div class="flex flex-col bg-[#2A2A2A] rounded-xl overflow-hidden min-h-[420px] relative">
-                    <div class="px-5 pt-5 pb-2 flex justify-between items-center">
-                        <span class="bg-[#BDCBCB] text-[#1A1A1A] px-3 py-1 rounded-md text-lg font-semibold">Айдентика</span>
-                        <span class="text-[#BDCBCB] text-2xl leading-none select-none">*</span>
+                <!-- Service 3 -->
+                <div class="flex flex-col bg-brand-cardbg h-full min-h-[380px] md:min-h-[420px] relative">
+                    <div class="px-4 py-2 flex justify-between items-center">
+                        <span class="bg-[#BDCBCB] text-[#1A1A1A] px-3 py-1 text-lg font-semibold">Айдентика</span>
+                        <span class="text-[#BDCBCB] text-2xl absolute right-4 top-2">*</span>
                     </div>
-                    <div class="p-6 text-[14px] font-normal leading-[1.55] text-white">
+                    <div class="p-6 text-[14px] font-normal leading-[1.5] text-white">
                         Полноценная визуальная<br>
                         система бренда: шрифтовые<br>
                         пары, модульные сетки,<br>
                         цветовые формулы и регламент<br>
                         использования (гайдлайн).
                     </div>
-                    <button onclick="navigateToSection('form');" class="mt-auto w-full bg-white text-[#1A1A1A] text-center py-3.5 text-sm font-semibold hover:bg-[#BDCBCB] transition-colors">
-                        Подробнее &rarr;
-                    </button>
+                    <div onclick="navigateToSection('form');" class="mt-auto bg-white text-[#1A1A1A] text-center py-3 text-sm font-semibold cursor-pointer hover:bg-[#BDCBCB] transition-colors">Подробнее &rarr;</div>
                 </div>
 
-                <!-- Карточка 4: Брендинг -->
-                <div class="flex flex-col bg-[#2A2A2A] rounded-xl overflow-hidden min-h-[420px] relative">
-                    <div class="px-5 pt-5 pb-2 flex justify-between items-center">
-                        <span class="bg-[#BDCBCB] text-[#1A1A1A] px-3 py-1 rounded-md text-lg font-semibold">Брендинг</span>
-                        <span class="text-[#BDCBCB] text-2xl leading-none select-none">*</span>
+                <!-- Service 4 -->
+                <div class="flex flex-col bg-brand-cardbg h-full min-h-[380px] md:min-h-[420px] relative">
+                    <div class="px-4 py-2 flex justify-between items-center">
+                        <span class="bg-[#BDCBCB] text-[#1A1A1A] px-3 py-1 text-lg font-semibold">Брендинг</span>
+                        <span class="text-[#BDCBCB] text-2xl absolute right-4 top-2">*</span>
                     </div>
-                    <div class="p-6 text-[14px] font-normal leading-[1.55] text-white">
+                    <div class="p-6 text-[14px] font-normal leading-[1.5] text-white">
                         Проектирование фундамента<br>
                         бренда: от смыслов<br>
                         и позиционирования<br>
                         до визуального воплощения.
                     </div>
-                    <button onclick="navigateToSection('form');" class="mt-auto w-full bg-white text-[#1A1A1A] text-center py-3.5 text-sm font-semibold hover:bg-[#BDCBCB] transition-colors">
-                        Подробнее &rarr;
-                    </button>
+                    <div onclick="navigateToSection('form');" class="mt-auto bg-white text-[#1A1A1A] text-center py-3 text-sm font-semibold cursor-pointer hover:bg-[#BDCBCB] transition-colors">Подробнее &rarr;</div>
                 </div>
             </div>
-
+            
             <div class="mt-10 flex justify-end">
-                <button onclick="navigateToSection('form');" class="border border-white text-white px-8 py-2.5 rounded-full text-sm font-normal hover:bg-white hover:text-[#1A1A1A] transition-colors">
+                <button onclick="navigateToSection('form');" class="border border-white text-white px-8 py-2 rounded-full text-sm font-normal hover:bg-white hover:text-black transition-colors">
                     Смотреть все услуги
                 </button>
             </div>
         </section>
 
-        <!-- Блок «Портфолио» (#portfolio) -->
+        <!-- Portfolio Section -->
         <section id="portfolio" class="px-6 md:px-12 py-20 bg-[#1A1A1A]">
             <h2 class="text-[24px] font-normal mb-8 flex items-center gap-3">
-                <img src="звёздочка.svg" alt="*" onerror="this.style.display='none';" class="w-5 h-5 opacity-75">
-                <span>портфолио</span>
+                <img src="звёздочка.svg" alt="*" class="w-5 h-5 opacity-70"> портфолио
             </h2>
             <h3 class="text-[36px] md:text-[48px] font-normal mb-12">Избранные проекты</h3>
 
-            <!-- Сетка 3 колонки на 2 ряда (PNG) -->
+            <!-- 6 квадратных кейсов -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Ряд 1, Кейс 1 -->
-                <div class="relative group aspect-[4/5] border border-white/20 rounded-xl overflow-hidden bg-[#2A2A2A]">
-                    <img src="Rectangle 19.png"
-                         alt="Логотип для бренда женской одежды"
-                         onerror="this.onerror=null; this.src='https://placehold.co/600x750/2A2A2A/BDCBCB?text=Rectangle+19';"
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute top-4 left-4 text-white text-[11px] font-normal leading-[1.3] drop-shadow">
-                        Логотип для бренда<br>женской одежды
-                    </div>
-                    <div class="absolute top-4 right-4 bg-white text-[#1A1A1A] text-[10px] font-bold px-3 py-1 rounded-full opacity-95">
-                        кейс &rarr;
-                    </div>
+                <!-- Row 1 -->
+                <div class="relative group aspect-[4/5] border border-white/20">
+                    <img src="Rectangle 19.png" alt="Кейс" class="w-full h-full object-cover">
+                    <div class="absolute top-4 left-4 text-white text-[11px] font-normal leading-[1.3]">Логотип для бренда<br>женской одежды</div>
+                    <div class="absolute top-4 right-4 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-full opacity-90">кейс &rarr;</div>
                 </div>
-
-                <!-- Ряд 1, Кейс 2 -->
-                <div class="relative group aspect-[4/5] border border-white/20 rounded-xl overflow-hidden bg-[#2A2A2A]">
-                    <img src="Rectangle 20.png"
-                         alt="Проект портфолио 2"
-                         onerror="this.onerror=null; this.src='https://placehold.co/600x750/2A2A2A/BDCBCB?text=Rectangle+20';"
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute top-4 right-4 bg-white text-[#1A1A1A] text-[10px] font-bold px-3 py-1 rounded-full opacity-95">
-                        кейс &rarr;
-                    </div>
+                <div class="relative group aspect-[4/5] border border-white/20">
+                    <img src="Rectangle 20.png" alt="Кейс" class="w-full h-full object-cover">
+                    <div class="absolute top-4 right-4 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-full opacity-90">кейс &rarr;</div>
                 </div>
-
-                <!-- Ряд 1, Кейс 3 -->
-                <div class="relative group aspect-[4/5] border border-white/20 rounded-xl overflow-hidden bg-[#2A2A2A]">
-                    <img src="Rectangle 21.png"
-                         alt="Проект портфолио 3"
-                         onerror="this.onerror=null; this.src='https://placehold.co/600x750/2A2A2A/BDCBCB?text=Rectangle+21';"
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute top-4 right-4 bg-white text-[#1A1A1A] text-[10px] font-bold px-3 py-1 rounded-full opacity-95">
-                        кейс &rarr;
-                    </div>
+                <div class="relative group aspect-[4/5] border border-white/20">
+                    <img src="Rectangle 21.png" alt="Кейс" class="w-full h-full object-cover">
+                    <div class="absolute top-4 right-4 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-full opacity-90">кейс &rarr;</div>
                 </div>
-
-                <!-- Ряд 2, Кейс 4 -->
-                <div class="relative group aspect-[4/5] border border-white/20 rounded-xl overflow-hidden bg-[#2A2A2A]">
-                    <img src="Rectangle 25.png"
-                         alt="Проект портфолио 4"
-                         onerror="this.onerror=null; this.src='https://placehold.co/600x750/2A2A2A/BDCBCB?text=Rectangle+25';"
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute top-4 right-4 bg-white text-[#1A1A1A] text-[10px] font-bold px-3 py-1 rounded-full opacity-95">
-                        кейс &rarr;
-                    </div>
+                <!-- Row 2 -->
+                <div class="relative group aspect-[4/5] border border-white/20">
+                    <img src="Rectangle 25.png" alt="Кейс" class="w-full h-full object-cover">
+                    <div class="absolute top-4 right-4 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-full opacity-90">кейс &rarr;</div>
                 </div>
-
-                <!-- Ряд 2, Кейс 5 -->
-                <div class="relative group aspect-[4/5] border border-white/20 rounded-xl overflow-hidden bg-[#2A2A2A]">
-                    <img src="Rectangle 26.png"
-                         alt="Проект портфолио 5"
-                         onerror="this.onerror=null; this.src='https://placehold.co/600x750/2A2A2A/BDCBCB?text=Rectangle+26';"
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute top-4 right-4 bg-white text-[#1A1A1A] text-[10px] font-bold px-3 py-1 rounded-full opacity-95">
-                        кейс &rarr;
-                    </div>
+                <div class="relative group aspect-[4/5] border border-white/20">
+                    <img src="Rectangle 26.png" alt="Кейс" class="w-full h-full object-cover">
+                    <div class="absolute top-4 right-4 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-full opacity-90">кейс &rarr;</div>
                 </div>
-
-                <!-- Ряд 2, Кейс 6 -->
-                <div class="relative group aspect-[4/5] border border-white/20 rounded-xl overflow-hidden bg-[#2A2A2A]">
-                    <img src="Rectangle 27.png"
-                         alt="Проект портфолио 6"
-                         onerror="this.onerror=null; this.src='https://placehold.co/600x750/2A2A2A/BDCBCB?text=Rectangle+27';"
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute top-4 right-4 bg-white text-[#1A1A1A] text-[10px] font-bold px-3 py-1 rounded-full opacity-95">
-                        кейс &rarr;
-                    </div>
+                <div class="relative group aspect-[4/5] border border-white/20">
+                    <img src="Rectangle 27.png" alt="Кейс" class="w-full h-full object-cover">
+                    <div class="absolute top-4 right-4 bg-white text-black text-[10px] font-bold px-3 py-1 rounded-full opacity-90">кейс &rarr;</div>
                 </div>
             </div>
 
             <div class="mt-10 flex justify-end">
-                <button onclick="navigateToSection('form');" class="border border-white text-white px-8 py-2.5 rounded-full text-sm font-normal hover:bg-white hover:text-[#1A1A1A] transition-colors">
+                <button onclick="navigateToSection('form');" class="border border-white text-white px-8 py-2 rounded-full text-sm font-normal hover:bg-white hover:text-black transition-colors">
                     Смотреть все работы
                 </button>
             </div>
         </section>
 
-        <!-- Блок «Этапы работы» (#process) -->
+        <!-- Process Section -->
         <section id="process" class="px-6 md:px-12 py-20">
             <h2 class="text-[24px] font-normal mb-8 flex items-center gap-3">
-                <img src="звёздочка.svg" alt="*" onerror="this.style.display='none';" class="w-5 h-5 opacity-75">
-                <span>этапы работы</span>
+                <img src="звёздочка.svg" alt="*" class="w-5 h-5 opacity-70"> этапы работы
             </h2>
             <h3 class="text-[36px] md:text-[48px] font-normal mb-16">Процесс работы</h3>
-
+            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-y-14 md:gap-y-16 gap-x-20">
-                <!-- Шаг 1 -->
+                <!-- Step 1 -->
                 <div>
-                    <div class="text-[20px] font-normal mb-5 text-[#BDCBCB]">Шаг 1 // Первичное интервью</div>
-                    <div class="text-[14px] leading-[1.6] font-normal text-white/90">
+                    <div class="text-[20px] font-normal mb-6">Шаг 1 // Первичное интервью</div>
+                    <div class="text-[14px] leading-[1.5] font-normal">
                         Раскрываем ДНК продукта, бизнес-цели,<br>
                         ценовой сегмент и точки контакта с аудиторией.<br>
                         Формируем смысловой фундамент, отсекаем<br>
                         шаблонные ходы конкурентов.
                     </div>
                 </div>
-
-                <!-- Шаг 2 -->
+                <!-- Step 2 -->
                 <div>
-                    <div class="text-[20px] font-normal mb-5 text-[#BDCBCB]">Шаг 2 // Проектирование концепций</div>
-                    <div class="text-[14px] leading-[1.6] font-normal text-white/90">
+                    <div class="text-[20px] font-normal mb-6">Шаг 2 // Проектирование концепций</div>
+                    <div class="text-[14px] leading-[1.5] font-normal">
                         Направляем визуальный вектор и проектируем первые<br>
                         концепции. Презентация первых рабочих вариантов<br>
                         с обоснованием логики решений.
                     </div>
                 </div>
-
-                <!-- Шаг 3 -->
+                <!-- Step 3 -->
                 <div>
-                    <div class="text-[20px] font-normal mb-5 text-[#BDCBCB]">Шаг 3 // Стресс-тест система</div>
-                    <div class="text-[14px] leading-[1.6] font-normal text-white/90">
+                    <div class="text-[20px] font-normal mb-6">Шаг 3 // Стресс-тест система</div>
+                    <div class="text-[14px] leading-[1.5] font-normal">
                         Выбранный концепт тестируется<br>
                         на технологичность и масштабируемость.<br>
                         От микрофавикона (16x16 пикселей)<br>
@@ -460,11 +356,10 @@
                         шелкография на мерче, гравировка, вывески).
                     </div>
                 </div>
-
-                <!-- Шаг 4 -->
+                <!-- Step 4 -->
                 <div>
-                    <div class="text-[20px] font-normal mb-5 text-[#BDCBCB]">Шаг 4 // Систематизация и файлы</div>
-                    <div class="text-[14px] leading-[1.6] font-normal text-white/90">
+                    <div class="text-[20px] font-normal mb-6">Шаг 4 // Систематизация и файлы</div>
+                    <div class="text-[14px] leading-[1.5] font-normal">
                         Финализируем файлы во всех форматах (вектор, растр,<br>
                         микро-версии, монохром), готовим технический<br>
                         регламент (гайдлайн) для легкого внедрения<br>
@@ -474,128 +369,110 @@
             </div>
         </section>
 
-        <!-- Форма заявки «Обсудить проект» (#form) — Web3Forms -->
-        <section id="form" class="px-6 md:px-12 py-20 pb-32">
+        <!-- Form Section (Web3Forms) -->
+        <section id="form" class="px-6 md:px-12 py-20 pb-24">
             <div class="max-w-[500px]">
                 <h3 class="text-[32px] md:text-[40px] font-normal mb-10">Обсудить проект</h3>
                 <form id="contact-form" class="space-y-4">
-                    <!-- Ключ доступа Web3Forms -->
-                    <input type="hidden" name="access_key" value="8b810e5b-bf46-499a-ba74-c1b4cd9cf48c">
+                    <input type="text" name="name" required placeholder="Ваше имя" class="w-full bg-transparent border-b border-white/30 py-3 focus:outline-none focus:border-white transition-colors text-white placeholder-white text-[15px]">
+                    <input type="text" name="contacts" required placeholder="Контакты" class="w-full bg-transparent border-b border-white/30 py-3 focus:outline-none focus:border-white transition-colors text-white placeholder-white text-[15px]">
+                    <input type="email" name="email" placeholder="Почта" class="w-full bg-transparent border-b border-white/30 py-3 focus:outline-none focus:border-white transition-colors text-white placeholder-white text-[15px]">
+                    <input type="text" name="message" placeholder="Расскажите о вашем проекте" class="w-full bg-transparent border-b border-white/30 py-3 focus:outline-none focus:border-white transition-colors text-white placeholder-white text-[15px]">
+                    
+                    <!-- Настройки Web3Forms -->
+                    <input type="hidden" name="access_key" id="w3f-key" value="8b810e5b-bf46-499a-ba74-c1b4cd9cf48c">
                     <input type="hidden" name="subject" value="Новая заявка с сайта Daniil BRANDesign">
                     <input type="hidden" name="from_name" value="Daniil BRANDesign">
 
-                    <input type="text"
-                           name="name"
-                           required
-                           placeholder="Ваше имя"
-                           class="w-full bg-transparent border-b border-white/30 py-3 focus:outline-none focus:border-[#BDCBCB] transition-colors text-white placeholder-white/80 text-[15px]">
-
-                    <input type="text"
-                           name="contacts"
-                           required
-                           placeholder="Контакты"
-                           class="w-full bg-transparent border-b border-white/30 py-3 focus:outline-none focus:border-[#BDCBCB] transition-colors text-white placeholder-white/80 text-[15px]">
-
-                    <input type="email"
-                           name="email"
-                           placeholder="Почта"
-                           class="w-full bg-transparent border-b border-white/30 py-3 focus:outline-none focus:border-[#BDCBCB] transition-colors text-white placeholder-white/80 text-[15px]">
-
-                    <input type="text"
-                           name="message"
-                           placeholder="Расскажите о вашем проекте"
-                           class="w-full bg-transparent border-b border-white/30 py-3 focus:outline-none focus:border-[#BDCBCB] transition-colors text-white placeholder-white/80 text-[15px]">
-
-                    <div class="pt-4">
-                        <button type="submit"
-                                id="submit-btn"
-                                class="bg-[#D9D9D9] text-[#1A1A1A] font-bold py-3.5 px-10 rounded-full hover:bg-white transition-colors inline-block text-sm">
-                            Отправить
-                        </button>
-                    </div>
-
+                    <button type="submit" id="submit-btn" class="bg-[#D9D9D9] text-[#1A1A1A] font-bold py-3 px-10 rounded-full hover:bg-white transition-colors mt-8 inline-block text-sm">
+                        Отправить
+                    </button>
                     <p id="form-status" class="text-sm text-[#BDCBCB] pt-2 hidden"></p>
                 </form>
             </div>
         </section>
 
-    </main>
-
-    <!-- ===================================================================== -->
-    <!-- ВНУТРЕННЯЯ СТРАНИЦА «ОБО МНЕ» (#about-page, 6 полноэкранных слайдов)  -->
-    <!-- ===================================================================== -->
-    <section id="about-page" class="hidden fade-in relative">
-
-        <!-- Слайд 1: ПРИВЕТ... -->
-        <div id="about-slide-1" class="min-h-[calc(100vh-81px)] flex flex-col justify-center px-6 md:px-12 py-16 bg-[#1A1A1A] relative overflow-hidden">
-            <!-- Полноразмерное необрезанное фото на фоне -->
-            <div class="absolute inset-0 z-0 flex justify-end items-end opacity-35 pointer-events-none">
-                <img src="Группа 2-compressed 1.png"
-                     alt="Даниил"
-                     onerror="this.style.display='none';"
-                     class="max-h-full max-w-full object-contain object-bottom">
+        <!-- Подвал главной страницы с кнопкой возвращения наверх -->
+        <footer class="px-6 md:px-12 py-10 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div class="text-sm text-white/60">
+                Daniil BRANDesign &copy; 2026
             </div>
+            <button onclick="scrollToTop()" class="border border-white/30 text-white px-6 py-2.5 rounded-full text-sm font-normal hover:bg-white hover:text-[#1A1A1A] transition-colors inline-flex items-center gap-2">
+                <span>Наверх</span>
+                <span>&uarr;</span>
+            </button>
+        </footer>
 
+    </div>
+
+    <!-- СТРАНИЦА "ОБО МНЕ" (Скрыта по умолчанию) -->
+    <div id="about-page" class="hidden fade-in relative">
+        
+        <!-- Кнопка возвращения на главную страницу вверху -->
+        <div class="px-6 md:px-12 pt-6 bg-[#1A1A1A]">
+            <button onclick="showPage('main-page');" class="border border-white/30 text-white/90 px-5 py-2 rounded-full text-xs md:text-sm font-normal hover:bg-white hover:text-[#1A1A1A] transition-colors inline-flex items-center gap-2">
+                <span>&larr;</span>
+                <span>На главную</span>
+            </button>
+        </div>
+
+        <!-- Слайд 1: ПРИВЕТ -->
+        <section class="min-h-[calc(100vh-130px)] flex flex-col justify-center px-6 md:px-12 py-16 bg-[#1A1A1A] relative overflow-hidden">
+            <div class="absolute inset-0 z-0 flex justify-end items-end opacity-40 pointer-events-none">
+                <img src="Группа 2-compressed 1.png" alt="Даниил" class="max-h-full max-w-full object-contain object-bottom">
+            </div>
+            
             <div class="relative z-10 max-w-2xl">
-                <h1 class="text-[48px] md:text-[80px] font-normal uppercase leading-none mb-8 md:mb-10">
-                    ПРИВЕТ...
-                </h1>
-                <p class="text-[18px] md:text-[24px] font-normal leading-[1.45]">
+                <h1 class="text-[52px] md:text-[80px] font-normal uppercase leading-none mb-10">ПРИВЕТ...</h1>
+                <div class="text-[18px] md:text-[24px] font-normal leading-[1.4]">
                     Я Даниил, бренд-дизайнер.<br>
                     Помогаю бизнесу и экспертам<br>
                     выстраивать сильный визуальный<br>
                     образ через айдентику,<br>
                     фирменный стиль и брендинг.
-                </p>
+                </div>
             </div>
-
-            <div class="absolute bottom-8 md:bottom-10 right-6 md:right-12 z-20">
-                <button onclick="document.getElementById('about-slide-2').scrollIntoView({ behavior: 'smooth' });"
-                        aria-label="Следующий слайд"
-                        class="w-11 h-11 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#1A1A1A] transition-colors">
+            <div class="absolute bottom-10 right-6 md:right-12 z-20">
+                <button onclick="document.getElementById('about-slide-2').scrollIntoView({ behavior: 'smooth' });" aria-label="Далее" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors">
                     &rarr;
                 </button>
             </div>
-        </div>
+        </section>
 
         <!-- Слайд 2: Моя работа -->
-        <div id="about-slide-2" class="min-h-[calc(100vh-81px)] flex flex-col justify-center px-6 md:px-12 py-16 bg-[#2A2A2A] relative">
+        <section id="about-slide-2" class="min-h-[600px] h-screen flex flex-col justify-center px-6 md:px-12 bg-[#2A2A2A] relative">
             <div class="max-w-2xl">
-                <h2 class="text-[40px] md:text-[64px] font-normal leading-tight mb-4">Моя работа</h2>
-                <div class="inline-block bg-[#BDCBCB] text-[#1A1A1A] px-4 py-1.5 rounded-md text-base md:text-lg font-normal mb-10 md:mb-12">
+                <h2 class="text-[44px] md:text-[64px] font-normal mb-4">Моя работа</h2>
+                <div class="inline-block bg-[#BDCBCB] text-[#1A1A1A] px-4 py-1 text-lg font-normal mb-12">
                     не просто сделать красиво
                 </div>
-
-                <p class="text-[18px] md:text-[24px] font-normal leading-[1.45] mb-8">
+                
+                <p class="text-[18px] md:text-[24px] font-normal leading-[1.4] mb-8">
                     Я создаю визуальные решения,<br>
                     которые помогают бренду<br>
                     выглядеть:
                 </p>
-
                 <div class="flex items-start gap-4">
-                    <span class="text-[#BDCBCB] text-2xl leading-none mt-1 select-none">↘</span>
-                    <ul class="text-[18px] md:text-[24px] font-normal space-y-3 md:space-y-4">
+                    <div class="text-white text-2xl leading-none mt-1">↘</div>
+                    <ul class="text-[18px] md:text-[24px] font-normal space-y-4">
                         <li>целостно</li>
                         <li>убедительно</li>
                         <li>и на своем уровне.</li>
                     </ul>
                 </div>
             </div>
-
-            <div class="absolute bottom-8 md:bottom-10 right-6 md:right-12">
-                <button onclick="document.getElementById('about-slide-3').scrollIntoView({ behavior: 'smooth' });"
-                        aria-label="Следующий слайд"
-                        class="w-11 h-11 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#1A1A1A] transition-colors">
+            <div class="absolute bottom-10 right-6 md:right-12">
+                <button onclick="document.getElementById('about-slide-3').scrollIntoView({ behavior: 'smooth' });" aria-label="Далее" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors">
                     &rarr;
                 </button>
             </div>
-        </div>
+        </section>
 
         <!-- Слайд 3: Мой подход -->
-        <div id="about-slide-3" class="min-h-[calc(100vh-81px)] flex flex-col justify-center px-6 md:px-12 py-16 bg-[#1A1A1A] relative">
+        <section id="about-slide-3" class="min-h-[600px] h-screen flex flex-col justify-center px-6 md:px-12 bg-[#1A1A1A] relative">
             <div class="max-w-2xl">
-                <h2 class="text-[40px] md:text-[64px] font-normal leading-tight mb-10 md:mb-12">Мой подход</h2>
-                <div class="text-[18px] md:text-[24px] font-normal leading-[1.45] space-y-10 md:space-y-12">
+                <h2 class="text-[44px] md:text-[64px] font-normal mb-12">Мой подход</h2>
+                <div class="text-[18px] md:text-[24px] font-normal leading-[1.4] space-y-12">
                     <p>
                         В дизайне мне важно<br>
                         соединять эстетику, смысл<br>
@@ -609,20 +486,17 @@
                     </p>
                 </div>
             </div>
-
-            <div class="absolute bottom-8 md:bottom-10 right-6 md:right-12">
-                <button onclick="document.getElementById('about-slide-4').scrollIntoView({ behavior: 'smooth' });"
-                        aria-label="Следующий слайд"
-                        class="w-11 h-11 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#1A1A1A] transition-colors">
+            <div class="absolute bottom-10 right-6 md:right-12">
+                <button onclick="document.getElementById('about-slide-4').scrollIntoView({ behavior: 'smooth' });" aria-label="Далее" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors">
                     &rarr;
                 </button>
             </div>
-        </div>
+        </section>
 
         <!-- Слайд 4: Аудитория -->
-        <div id="about-slide-4" class="min-h-[calc(100vh-81px)] flex flex-col justify-center px-6 md:px-12 py-16 bg-[#2A2A2A] relative">
+        <section id="about-slide-4" class="min-h-[600px] h-screen flex flex-col justify-center px-6 md:px-12 bg-[#2A2A2A] relative">
             <div class="max-w-2xl">
-                <p class="text-[20px] md:text-[28px] font-normal leading-[1.45]">
+                <p class="text-[20px] md:text-[28px] font-normal leading-[1.4]">
                     Чаще всего я работаю<br>
                     с предпринимателями, экспертами<br>
                     и брендами, которым важно качество,<br>
@@ -630,25 +504,22 @@
                     восприятие.
                 </p>
             </div>
-
-            <div class="absolute bottom-8 md:bottom-10 right-6 md:right-12">
-                <button onclick="document.getElementById('about-slide-5').scrollIntoView({ behavior: 'smooth' });"
-                        aria-label="Следующий слайд"
-                        class="w-11 h-11 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#1A1A1A] transition-colors">
+            <div class="absolute bottom-10 right-6 md:right-12">
+                <button onclick="document.getElementById('about-slide-5').scrollIntoView({ behavior: 'smooth' });" aria-label="Далее" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors">
                     &rarr;
                 </button>
             </div>
-        </div>
+        </section>
 
-        <!-- Слайд 5: Разработка -->
-        <div id="about-slide-5" class="min-h-[calc(100vh-81px)] flex flex-col justify-center px-6 md:px-12 py-16 bg-[#1A1A1A] relative">
+        <!-- Слайд 5: Услуги -->
+        <section id="about-slide-5" class="min-h-[600px] h-screen flex flex-col justify-center px-6 md:px-12 bg-[#1A1A1A] relative">
             <div class="max-w-2xl">
-                <h2 class="text-[38px] md:text-[64px] font-normal leading-[1.12] mb-10 md:mb-12">
+                <h2 class="text-[44px] md:text-[64px] font-normal leading-[1.1] mb-12">
                     Ко мне можно<br>обратиться за<br>разработкой
                 </h2>
                 <div class="flex items-start gap-4">
-                    <span class="text-[#BDCBCB] text-2xl leading-none mt-1 select-none">↘</span>
-                    <ul class="text-[18px] md:text-[24px] font-normal space-y-3 md:space-y-4">
+                    <div class="text-white text-2xl leading-none mt-1">↘</div>
+                    <ul class="text-[18px] md:text-[24px] font-normal space-y-4">
                         <li>Нейминга</li>
                         <li>Логотипа</li>
                         <li>Фирменного стиля</li>
@@ -658,165 +529,196 @@
                     </ul>
                 </div>
             </div>
-
-            <div class="absolute bottom-8 md:bottom-10 right-6 md:right-12">
-                <button onclick="document.getElementById('about-slide-6').scrollIntoView({ behavior: 'smooth' });"
-                        aria-label="Следующий слайд"
-                        class="w-11 h-11 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#1A1A1A] transition-colors">
+            <div class="absolute bottom-10 right-6 md:right-12">
+                <button onclick="document.getElementById('about-slide-6').scrollIntoView({ behavior: 'smooth' });" aria-label="Далее" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors">
                     &rarr;
                 </button>
             </div>
-        </div>
+        </section>
 
         <!-- Слайд 6: Финал -->
-        <div id="about-slide-6" class="min-h-[calc(100vh-81px)] flex flex-col justify-center px-6 md:px-12 py-16 bg-[#2A2A2A] relative">
+        <section id="about-slide-6" class="min-h-[600px] h-screen flex flex-col justify-center px-6 md:px-12 bg-[#2A2A2A] relative">
             <div class="max-w-2xl">
-                <img src="звёздочка.svg"
-                     alt="*"
-                     onerror="this.style.display='none';"
-                     class="w-16 h-16 mb-8">
-                <p class="text-[20px] md:text-[28px] font-normal leading-[1.35] mb-12">
+                <img src="звёздочка.svg" alt="*" class="w-16 h-16 mb-8">
+                <p class="text-[20px] md:text-[28px] font-normal leading-[1.3] mb-12">
                     Мне важно не просто создать<br>
                     стильный дизайн, а найти точное решение<br>
                     именно для бренда, его аудитории и задач.
                 </p>
-                <button onclick="showPage('main-page');"
-                        class="bg-[#BDCBCB] text-[#1A1A1A] px-8 py-3.5 rounded-full text-sm font-bold uppercase hover:bg-white transition-colors">
-                    Вернуться на главную
-                </button>
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="showPage('main-page');" class="bg-[#BDCBCB] text-[#1A1A1A] px-7 py-3.5 rounded-full text-sm font-bold hover:bg-white transition-colors inline-flex items-center gap-2">
+                        <span>&larr;</span>
+                        <span>Вернуться на главную</span>
+                    </button>
+                    <button onclick="scrollToTop();" class="border border-white/40 text-white px-6 py-3.5 rounded-full text-sm font-normal hover:bg-white hover:text-[#1A1A1A] transition-colors inline-flex items-center gap-2">
+                        <span>Наверх</span>
+                        <span>&uarr;</span>
+                    </button>
+                </div>
             </div>
-        </div>
+        </section>
 
-    </section>
+    </div>
 
-    <!-- ===================================================================== -->
-    <!-- JAVASCRIPT: SPA-НАВИГАЦИЯ, МОБИЛЬНАЯ ШТОРКА И ФОРМА WEB3FORMS         -->
-    <!-- ===================================================================== -->
+    <!-- Плавающая кнопка возвращения наверх (появляется при прокрутке вниз) -->
+    <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Наверх" class="fixed bottom-6 right-5 z-40 w-11 h-11 rounded-full bg-[#2A2A2A] border border-white/25 text-white shadow-xl flex items-center justify-center opacity-0 pointer-events-none translate-y-3 transition-all duration-300 hover:bg-[#BDCBCB] hover:text-[#1A1A1A]">
+        &uarr;
+    </button>
+
+    <!-- JavaScript для навигации, мобильного меню и отправки формы -->
     <script>
-        /**
-         * Переключение между главной страницей (#main-page) и разделом «Обо мне» (#about-page)
-         * с подсветкой активной вкладки в десктопном и мобильном меню.
-         */
-        function showPage(pageId) {
-            const mainPage = document.getElementById('main-page');
-            const aboutPage = document.getElementById('about-page');
+        let isMenuOpen = false;
 
-            mainPage.classList.add('hidden');
-            aboutPage.classList.add('hidden');
-            document.getElementById(pageId).classList.remove('hidden');
-
-            const navAbout = document.getElementById('nav-about');
-            const mobileNavMain = document.getElementById('mobile-nav-main');
-            const mobileNavAbout = document.getElementById('mobile-nav-about');
-            const mobileAboutBadge = document.getElementById('mobile-about-badge');
-
-            if (pageId === 'about-page') {
-                // Подсвечиваем «Обо мне» на десктопе
-                navAbout.classList.add('text-[#BDCBCB]', 'border-b', 'border-[#BDCBCB]', 'pb-0.5');
-                // Подсвечиваем «Обо мне» и показываем бейдж «вы здесь» в мобильной шторке
-                mobileNavAbout.classList.add('text-[#BDCBCB]');
-                mobileNavMain.classList.remove('text-[#BDCBCB]');
-                mobileAboutBadge.classList.remove('hidden');
-            } else {
-                // Возвращаем стандартное состояние
-                navAbout.classList.remove('text-[#BDCBCB]', 'border-b', 'border-[#BDCBCB]', 'pb-0.5');
-                mobileNavAbout.classList.remove('text-[#BDCBCB]');
-                mobileNavMain.classList.add('text-[#BDCBCB]');
-                mobileAboutBadge.classList.add('hidden');
-            }
-
+        function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        /**
-         * Плавный переход к нужной секции на главной странице (работает даже если сейчас открыто «Обо мне»)
-         */
+        function updateActiveNav(pageId) {
+            const navAbout = document.getElementById('nav-about');
+            const mobAboutBadge = document.getElementById('mob-about-badge');
+            const mobMainBadge = document.getElementById('mob-main-badge');
+            const mobNavAbout = document.getElementById('mob-nav-about');
+            const mobNavMain = document.getElementById('mob-nav-main');
+
+            if (pageId === 'about-page') {
+                navAbout.classList.add('text-[#BDCBCB]', 'border-[#BDCBCB]');
+                navAbout.classList.remove('border-transparent');
+                mobAboutBadge.classList.remove('hidden');
+                mobMainBadge.classList.add('hidden');
+                mobNavAbout.classList.add('text-[#BDCBCB]', 'font-semibold');
+                mobNavMain.classList.remove('text-[#BDCBCB]', 'font-semibold');
+            } else {
+                navAbout.classList.remove('text-[#BDCBCB]', 'border-[#BDCBCB]');
+                navAbout.classList.add('border-transparent');
+                mobAboutBadge.classList.add('hidden');
+                mobMainBadge.classList.remove('hidden');
+                mobNavMain.classList.add('text-[#BDCBCB]', 'font-semibold');
+                mobNavAbout.classList.remove('text-[#BDCBCB]', 'font-semibold');
+            }
+        }
+
+        function showPage(pageId) {
+            document.getElementById('main-page').classList.add('hidden');
+            document.getElementById('about-page').classList.add('hidden');
+            document.getElementById(pageId).classList.remove('hidden');
+            updateActiveNav(pageId);
+            window.scrollTo(0, 0);
+        }
+
         function navigateToSection(sectionId) {
-            const isMainHidden = document.getElementById('main-page').classList.contains('hidden');
-            if (isMainHidden) {
+            const isAboutVisible = !document.getElementById('about-page').classList.contains('hidden');
+            if (isAboutVisible) {
                 showPage('main-page');
                 setTimeout(() => {
-                    const target = document.getElementById(sectionId);
-                    if (target) target.scrollIntoView({ behavior: 'smooth' });
+                    const el = document.getElementById(sectionId);
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }, 80);
             } else {
-                const target = document.getElementById(sectionId);
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
+                const el = document.getElementById(sectionId);
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
             }
         }
 
-        /**
-         * Открытие / закрытие мобильной шторки меню-бургера
-         */
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const btn = document.getElementById('mobile-menu-btn');
-            const isHidden = menu.classList.contains('hidden');
-
-            if (isHidden) {
-                menu.classList.remove('hidden');
-                menu.classList.add('flex');
-                btn.classList.add('burger-open', 'border-[#BDCBCB]');
-                btn.setAttribute('aria-expanded', 'true');
-                document.body.style.overflow = 'hidden';
-            } else {
+            if (isMenuOpen) {
                 closeMobileMenu();
+            } else {
+                openMobileMenu();
             }
         }
 
-        /**
-         * Закрытие мобильной шторки и разблокировка скролла страницы
-         */
-        function closeMobileMenu() {
+        function openMobileMenu() {
+            isMenuOpen = true;
             const menu = document.getElementById('mobile-menu');
-            const btn = document.getElementById('mobile-menu-btn');
+            const header = document.getElementById('main-header');
+            const btn = document.getElementById('burger-btn');
+            const l1 = document.getElementById('burger-line-1');
+            const l2 = document.getElementById('burger-line-2');
+            const l3 = document.getElementById('burger-line-3');
 
-            if (!menu.classList.contains('hidden')) {
-                menu.classList.add('hidden');
-                menu.classList.remove('flex');
-                btn.classList.remove('burger-open', 'border-[#BDCBCB]');
-                btn.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
+            header.classList.remove('bg-[#1A1A1A]/95');
+            header.classList.add('bg-[#0F0F0F]');
+            menu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            btn.setAttribute('aria-expanded', 'true');
+
+            l1.classList.add('rotate-45', 'translate-y-[7.5px]');
+            l2.classList.add('opacity-0');
+            l3.classList.add('-rotate-45', '-translate-y-[7.5px]');
+            updateScrollTopButton();
+        }
+
+        function closeMobileMenu() {
+            isMenuOpen = false;
+            const menu = document.getElementById('mobile-menu');
+            const header = document.getElementById('main-header');
+            const btn = document.getElementById('burger-btn');
+            const l1 = document.getElementById('burger-line-1');
+            const l2 = document.getElementById('burger-line-2');
+            const l3 = document.getElementById('burger-line-3');
+
+            header.classList.remove('bg-[#0F0F0F]');
+            header.classList.add('bg-[#1A1A1A]/95');
+            menu.classList.add('hidden');
+            document.body.style.overflow = '';
+            btn.setAttribute('aria-expanded', 'false');
+
+            l1.classList.remove('rotate-45', 'translate-y-[7.5px]');
+            l2.classList.remove('opacity-0');
+            l3.classList.remove('-rotate-45', '-translate-y-[7.5px]');
+            updateScrollTopButton();
+        }
+
+        function updateScrollTopButton() {
+            const scrollBtn = document.getElementById('scroll-top-btn');
+            if (!scrollBtn) return;
+
+            if (!isMenuOpen && window.scrollY > 300) {
+                scrollBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+                scrollBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            } else {
+                scrollBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+                scrollBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
             }
         }
 
-        // Автоматически закрываем мобильную шторку при переходе экрана на десктопную ширину
+        window.addEventListener('scroll', updateScrollTopButton, { passive: true });
+
         window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) {
+            if (window.innerWidth >= 768 && isMenuOpen) {
                 closeMobileMenu();
             }
         });
 
-        /**
-         * Отправка заявки через Web3Forms без перезагрузки страницы
-         */
-        document.getElementById('contact-form').addEventListener('submit', async function (e) {
-            e.preventDefault();
+        // Инициализация активного состояния при загрузке
+        updateActiveNav('main-page');
 
+        // Обработка отправки формы через Web3Forms
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
             const form = e.target;
             const btn = document.getElementById('submit-btn');
             const status = document.getElementById('form-status');
-            const formData = new FormData(form);
+            const keyInput = document.getElementById('w3f-key');
+            const accessKey = keyInput.value.trim();
 
-            const key = (formData.get('access_key') || '').trim();
-            formData.set('access_key', key);
+            if (!accessKey || accessKey === 'ВСТАВЬ_СЮДА_СВОЙ_КЛЮЧ_WEB3FORMS') {
+                status.innerText = 'Сначала вставьте ваш Access Key от Web3Forms в поле access_key в коде index.html';
+                status.classList.remove('hidden', 'text-[#BDCBCB]');
+                status.classList.add('text-red-400');
+                return;
+            }
 
-            const payload = JSON.stringify(Object.fromEntries(formData));
-
+            keyInput.value = accessKey;
             btn.disabled = true;
             btn.innerText = 'Отправка...';
             status.classList.add('hidden');
-            status.classList.remove('text-red-400');
-            status.classList.add('text-[#BDCBCB]');
 
             try {
                 const response = await fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: payload
+                    headers: { 'Accept': 'application/json' },
+                    body: new FormData(form)
                 });
 
                 const result = await response.json();
@@ -824,20 +726,18 @@
                 if (response.ok && result.success) {
                     btn.innerText = 'Отправлено!';
                     status.innerText = 'Заявка успешно отправлена. Скоро свяжусь с вами!';
-                    status.classList.remove('hidden');
+                    status.classList.remove('hidden', 'text-red-400');
+                    status.classList.add('text-[#BDCBCB]');
                     form.reset();
                     setTimeout(() => {
                         btn.innerText = 'Отправить';
-                    }, 3000);
+                    }, 4000);
                 } else {
-                    btn.innerText = 'Отправить';
-                    status.innerText = 'Ошибка: ' + (result.message || 'не удалось отправить заявку.');
-                    status.classList.remove('hidden', 'text-[#BDCBCB]');
-                    status.classList.add('text-red-400');
+                    throw new Error(result.message || 'Ошибка при отправке формы');
                 }
-            } catch (err) {
+            } catch (error) {
                 btn.innerText = 'Отправить';
-                status.innerText = 'Ошибка сети. Проверьте подключение к интернету и попробуйте снова.';
+                status.innerText = 'Ошибка: ' + error.message;
                 status.classList.remove('hidden', 'text-[#BDCBCB]');
                 status.classList.add('text-red-400');
             } finally {
@@ -845,5 +745,6 @@
             }
         });
     </script>
+
 </body>
 </html>
